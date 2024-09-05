@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weight Unit Converter</title>
+    </head>
+    <body>
+        <main>
+            <div>
+                <h2>Weight Unit Converter</h2>
+                <div>
+                    <a href="/">Length</a>
+                    <a href="/weight">Weight</a>
+                    <a href="/temperature">Temperature</a>
+                </div>
+                <form action="/submit">
+                    <div>
+                        <label for="length">Enter the length to convert</label>
+                        <input type="number" name="length" />
+                    </div>
+                    <div>
+                        <label for="convertFrom">Unit to convert from</label>
+                        <select name="convertFrom" id="convertFrom">
+                            <option value="no-selection">
+                                Select any unit
+                            </option>
+                            {% for unit in units %}
+                            <option value="{{unit[1]}}">{{unit[0]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div>
+                        <label for="convertTo">Unit to convert to</label>
+                        <select name="convertTo" id="convertTo">
+                            <option value="no-selection">
+                                Select any unit
+                            </option>
+                            {% for unit in units %}
+                            <option value="{{unit[1]}}">{{unit[0]}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <button type="submit">Convert</button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
