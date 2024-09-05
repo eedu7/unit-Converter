@@ -3,6 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', path='css/styles.css') }}" />
+
         <title>Temperature Converter</title>
     </head>
     <body>
@@ -21,7 +25,7 @@
                         id="type_of"
                         hidden
                         value="temperature" />
-                    
+
                     <div>
                         <label for="value">Enter the length to convert</label>
                         <input type="number" name="value" id="value" />

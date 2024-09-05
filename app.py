@@ -1,11 +1,16 @@
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+
 
 from helper import length_unit_conversion, temp_unit_conversion, weight_unit_conversion
 from units import LENGTH_UNITS, TEMPERATURE_UNITS, WEIGHT_UNITS
 
 app = FastAPI()
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 templates = Jinja2Templates(directory="templates")
 
