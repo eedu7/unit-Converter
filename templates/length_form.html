@@ -6,55 +6,48 @@
         <link
             rel="stylesheet"
             href="{{ url_for('static', path='css/styles.css') }}" />
-
         <title>Length Unit Converter</title>
     </head>
     <body>
         <main>
-            <div>
-                <h2>Length Unit Converter</h2>
-                <div>
-                    <a href="/">Length</a>
-                    <a href="/weight">Weight</a>
-                    <a href="/temperature">Temperature</a>
-                </div>
-                <form action="/submit" method="post">
-                    <input
-                        type="text"
-                        name="type_of"
-                        id="type_of"
-                        hidden
-                        value="length" />
-                    <div>
-                        <label for="value">Enter the length to convert</label>
-                        <input type="number" id="value" name="value" />
-                    </div>
-                    <div>
-                        <label for="convertFrom">Unit to convert from</label>
-                        <select name="convertFrom" id="convertFrom">
-                            <option value="no-selection">
-                                Select any unit
-                            </option>
-                            {% for unit in units %}
-                            <option value="{{unit[1]}}">{{unit[0]}}</option>
-
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div>
-                        <label for="convertTo">Unit to convert to</label>
-                        <select name="convertTo" id="convertTo">
-                            <option value="no-selection">
-                                Select any unit
-                            </option>
-                            {% for unit in units %}
-                            <option value="{{unit[1]}}">{{unit[0]}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <button type="submit">Convert</button>
-                </form>
+            <h2>Length Unit Converter</h2>
+            <div class="navlinks">
+                <a href="/" class="active">Length</a>
+                <a href="/weight">Weight</a>
+                <a href="/temperature">Temperature</a>
             </div>
+            <form action="/submit" method="post">
+                <input
+                    type="text"
+                    name="type_of"
+                    id="type_of"
+                    hidden
+                    value="length" />
+                <div>
+                    <label for="value">Enter the length to convert</label>
+                    <input type="number" id="value" name="value" />
+                </div>
+                <div>
+                    <label for="convertFrom">Unit to convert from</label>
+                    <select name="convertFrom" id="convertFrom">
+                        <option value="no-selection">Select any unit</option>
+                        {% for unit in units %}
+                        <option value="{{unit[1]}}">{{unit[0]}}</option>
+
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label for="convertTo">Unit to convert to</label>
+                    <select name="convertTo" id="convertTo">
+                        <option value="no-selection">Select any unit</option>
+                        {% for unit in units %}
+                        <option value="{{unit[1]}}">{{unit[0]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit">Convert</button>
+            </form>
         </main>
     </body>
 </html>
