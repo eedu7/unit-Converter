@@ -1,61 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="{{ url_for('static', path='css/styles.css') }}" />
+{% extends "base.html" %}
+<!-- Title -->
+{% block webTitle %}Temperature Conversions{% endblock%}
 
-        <title>Temperature Converter</title>
-    </head>
-    <body>
-        <main>
-            <div>
-                <h2>Temperature Converter</h2>
-                <div>
-                    <a href="/">Length</a>
-                    <a href="/weight">Weight</a>
-                    <a href="/temperature">Temperature</a>
-                </div>
-                <form action="/submit" method="post">
-                    <input
-                        type="text"
-                        name="type_of"
-                        id="type_of"
-                        hidden
-                        value="temperature" />
+<!-- Form Title -->
+{% block title %}Temperature Unit Conversion{% endblock %}
 
-                    <div>
-                        <label for="value">Enter the length to convert</label>
-                        <input type="number" name="value" id="value" />
-                    </div>
-                    <div>
-                        <label for="convertFrom">Unit to convert from</label>
+<!-- NavLink -->
+{% block temperature_nav %}class="active"{% endblock %} {% block content %}
+<form action="/submit" method="post">
+    <input type="text" name="type_of" id="type_of" hidden value="temperature" />
 
-                        <select name="convertFrom" id="convertFrom">
-                            <option value="no-selection">
-                                Select any unit
-                            </option>
-                            {% for unit in units %}
-                            <option value="{{unit[1]}}">{{unit[0]}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div>
-                        <label for="convertTo">Unit to convert to</label>
-                        <select name="convertTo" id="convertTo">
-                            <option value="no-selection">
-                                Select any unit
-                            </option>
-                            {% for unit in units %}
-                            <option value="{{unit[1]}}">{{unit[0]}}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <button type="submit">Convert</button>
-                </form>
-            </div>
-        </main>
-    </body>
-</html>
+    <div>
+        <label for="value">Enter the temperature to convert</label>
+        <input type="number" name="value" id="value" />
+    </div>
+    <div>
+        <label for="convertFrom">Unit to convert from</label>
+
+        <select name="convertFrom" id="convertFrom">
+            <option value="no-selection">Select any unit</option>
+            {% for unit in units %}
+            <option value="{{unit[1]}}">{{unit[0]}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div>
+        <label for="convertTo">Unit to convert to</label>
+        <select name="convertTo" id="convertTo">
+            <option value="no-selection">Select any unit</option>
+            {% for unit in units %}
+            <option value="{{unit[1]}}">{{unit[0]}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Convert</button>
+</form>
+{% endblock %}

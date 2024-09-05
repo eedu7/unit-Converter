@@ -6,17 +6,18 @@
         <link
             rel="stylesheet"
             href="{{ url_for('static', path='css/styles.css') }}" />
-        <title>{% block title %}Unit Conversions{% endblock %}</title>
+        <title>{% block webTitle %}Unit Conversions{% endblock %}</title>
     </head>
     <body>
         <main>
-            <h2>{% block formTitle %}Unit Conversion{% endblock %}</h2>
+            <h2>{% block title %}Unit Conversion{% endblock %}</h2>
             <div class="navlinks">
                 <a href="/" {% block length_nav %}{%endblock%}>Length</a>
-                <a href="/weight" {% block width_nav %}{%endblock%}>Weight</a>
+                <a href="/weight" {% block weight_nav %}{%endblock%}>Weight</a>
                 <a href="/temperature" {% block temperature_nav %}{%endblock%}
                     >Temperature</a
                 >
+                {% block navLink %}{%endblock%}
             </div>
             {% block content %} {% endblock %}
         </main>

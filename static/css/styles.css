@@ -47,9 +47,16 @@ h2 {
 .navlinks > .active {
     background: #ddd;
 }
+#backLink {
+    color: #f1f1f1;
+    background-color: rgb(255, 99, 71);
+}
+#backLink:hover {
+    color: #f1f1f1;
+    background-color: rgb(247, 56, 23);
+}
 
 form {
-    border: 1px solid;
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -60,6 +67,7 @@ form {
 form > div {
     display: flex;
     flex-direction: column;
+    row-gap: 5px;
 }
 form > div > label {
     font-size: medium;
@@ -87,4 +95,33 @@ button {
 button:hover {
     background-color: #ddd;
     cursor: pointer;
+}
+
+.result-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    filter: drop-shadow(0 0 0.03rem crimson);
+}
+.result-box > h3 {
+    text-align: left;
+}
+
+.result-box-heading {
+    font-size: medium;
+    letter-spacing: 0.3rem;
+    border-bottom: 2px solid;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.result-box-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
 }

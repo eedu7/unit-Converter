@@ -1,33 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="{{ url_for('static', path='css/styles.css') }}" />
+{% extends "base.html" %}
+<link rel="stylesheet" href="{{ url_for('static', path='css/styles.css') }}" />
 
-        <title>Result Conversion</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <main>
-            <div>
-                <h2>Unit Converter</h2>
-                <div>
-                    <a href="/" aria-disabled="true">Length</a>
-                    <a href="/weight" aria-disabled="true">Weight</a>
-                    <a href="/temperature" aria-disabled="true">Temperature</a>
-                </div>
-                <div>
-                    <h4>Result of your calculation</h4>
-                    <h3>
-                        {{value}} <span>({{convertFrom}})</span> ➡️
-                        {{converted_value}}
-                        <span>({{convertTo}})</span>
-                    </h3>
-                </div>
-            </div>
-        </main>
-    </body>
-</html>
+<!-- Title -->
+{% block webTitle %}Conversion Result{% endblock%} {% block navLink %}<a
+    href="{{href}}"
+    id="backLink"
+    >Back</a
+>{% endblock%} {% block content %}
+
+<div class="result-box">
+    <h3 class="result-box-heading">Result of your calculation</h3>
+    <h3 class="result-box-content">
+        <div>{{value}} <sub>({{convertFrom}})</sub></div>
+        <div>➡️</div>
+        <div>
+            {{converted_value}}
+            <sub>({{convertTo}})</sub>
+        </div>
+    </h3>
+</div>
+{% endblock %}

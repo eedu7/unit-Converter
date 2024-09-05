@@ -59,5 +59,6 @@ async def submit_form(
             "converted_value": round(converted_value, 2),
             "convertFrom": convertFrom,
             "convertTo": convertTo,
+            "href": "/" if type_of == "length" else type_of
         },
     )
