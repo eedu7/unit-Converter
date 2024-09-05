@@ -7,7 +7,7 @@ Sample solution for the [unit-converter](https://roadmap.sh/projects/unit-conver
 Clone the repository and run the following command:
 
 ```bash
-git clone https://github.com/eedu7/unit-Converterracker.git
+git clone https://github.com/eedu7/unit-Converter.git
 cd unit-Converter
 pip install -r requirements.txt
 python main.py
