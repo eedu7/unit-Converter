@@ -10,14 +10,21 @@
             <div>
                 <h2>Temperature Converter</h2>
                 <div>
-                    <a href="/" >Length</a>
-                    <a href="/weight" >Weight</a>
-                    <a href="/temperature" >Temperature</a>
+                    <a href="/">Length</a>
+                    <a href="/weight">Weight</a>
+                    <a href="/temperature">Temperature</a>
                 </div>
-                <form action="/submit">
+                <form action="/submit" method="post">
+                    <input
+                        type="text"
+                        name="type_of"
+                        id="type_of"
+                        hidden
+                        value="temperature" />
+                    
                     <div>
-                        <label for="length">Enter the length to convert</label>
-                        <input type="number" name="length" />
+                        <label for="value">Enter the length to convert</label>
+                        <input type="number" name="value" id="value" />
                     </div>
                     <div>
                         <label for="convertFrom">Unit to convert from</label>

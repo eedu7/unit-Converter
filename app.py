@@ -1,9 +1,9 @@
-from fastapi import FastAPI, Form
+from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from fastapi import Request
 
-from units import LENGTH_UNITS, WEIGHT_UNITS, TEMPERATURE_UNITS
+from helper import length_unit_conversion, temp_unit_conversion, weight_unit_conversion
+from units import LENGTH_UNITS, TEMPERATURE_UNITS, WEIGHT_UNITS
 
 app = FastAPI()
 
@@ -37,5 +37,22 @@ async def submit_form(
     value: float = Form(...),
     convertFrom: str = Form(...),
     convertTo: str = Form(...),
+    type_of: str = Form(...),
 ):
-    return {"value": value, "convertFrom": convertFrom, "convertTo": convertTo}
+    converted_value = value
+    if type_of == "temperature":
+        converted_value = temp_unit_conversion(value, convertFrom, convertTo)
+    elif type_of == "length":
+        converted_value = length_unit_conversion(value, convertFrom, convertTo)
+    elif type_of == "weight":
+        converted_value = weight_unit_conversion(value, convertFrom, convertTo)
+    return templates.TemplateResponse(
+        "result.html",
+        {
+            "request": request,
+            "value": value,
+            "converted_value": round(converted_value, 2),
+            "convertFrom": convertFrom,
+            "convertTo": convertTo,
+        },
+    )

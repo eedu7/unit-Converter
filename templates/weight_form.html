@@ -14,7 +14,13 @@
                     <a href="/weight">Weight</a>
                     <a href="/temperature">Temperature</a>
                 </div>
-                <form action="/submit">
+                <form action="/submit" method="post">
+                    <input
+                        type="text"
+                        name="type_of"
+                        id="type_of"
+                        hidden
+                        value="weight" />
                     <div>
                         <label for="length">Enter the length to convert</label>
                         <input type="number" name="length" />
